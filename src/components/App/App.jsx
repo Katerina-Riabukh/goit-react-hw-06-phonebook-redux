@@ -1,7 +1,7 @@
 
-import { Form } from "./form/form";
-import { ContactList } from "./contactList/contactList";
-import { FilterContacts } from "./filter/filterContacts";
+import { Form } from "../form/form";
+import { ContactList } from "../contactList/contactList";
+import { FilterContacts } from "../filter/filterContacts";
 import { H1, H2, Wraper } from "./App.styled";
 import { useState, useEffect, useMemo } from "react";
 

@@ -1,7 +1,5 @@
 import React from "react";
 import { Filter, FilterContact } from "./filterContacts.styled";
-import PropTypes from 'prop-types';
-
 
 
 export const FilterContacts = ({ filterContactsByName }) => {
@@ -17,8 +15,5 @@ export const FilterContacts = ({ filterContactsByName }) => {
 
 };
 
-FilterContacts.propTypes = {
-    filterContactsByName: PropTypes.func.isRequired,
-}
 
 

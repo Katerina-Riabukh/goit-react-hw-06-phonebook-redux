@@ -4,8 +4,8 @@ import { ContactList } from "../contactList/contactList";
 import { FilterContacts } from "../filter/filterContacts";
 import { H1, H2, Wraper } from "./App.styled";
 // import { useState, useEffect, useMemo } from "react";
-import { selectContacts } from "redux/selectors";
-import { useSelector } from "react-redux";
+// import { selectContacts } from "redux/selectors";
+// import { useSelector } from "react-redux";
 
 
 
@@ -16,7 +16,7 @@ export const App = () => {
   // });
 
   // const [filter, setFilter] = useState('');
-  const contacts = useSelector(selectContacts)
+  // const contacts = useSelector(selectContacts)
 
 
 

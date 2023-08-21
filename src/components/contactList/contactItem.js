@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, LI, Name } from "./contactItems.styled";
-import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
 import { delateContact } from "redux/contactsSlice";
 

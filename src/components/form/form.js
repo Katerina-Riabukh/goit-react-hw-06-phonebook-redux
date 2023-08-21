@@ -1,12 +1,16 @@
 import { nanoid } from "nanoid";
 import { BUTTON, FORM, Input, LABEL } from "./form.styled";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addContact } from "redux/contactsSlice";
 
-export const Form = ({ onFormSubmit }) => {
+export const Form = () => {
 
   const [name, setName] = useState('');
   const [id, setId] = useState('');
   const [number, setNumber] = useState('');
+  const dispatch = useDispatch()
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.currentTarget;
@@ -25,7 +29,7 @@ export const Form = ({ onFormSubmit }) => {
 
   const handleSubmitForm = (event) => {
     event.preventDefault();
-    onFormSubmit({ name, id, number })
+    dispatch(addContact({ name, id, number }))
     reset()
   }
 

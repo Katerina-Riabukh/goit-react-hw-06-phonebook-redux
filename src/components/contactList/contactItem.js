@@ -1,23 +1,24 @@
 import React from "react";
 import { Button, LI, Name } from "./contactItems.styled";
 import PropTypes from 'prop-types';
+import { useDispatch } from "react-redux";
+import { delateContact } from "redux/contactsSlice";
 
 
 
-export const ContactItem = ({ item, delateContact }) => {
+export const ContactItem = ({ item }) => {
 
         const { name, number, id } = item
+        const dispatch = useDispatch()
+
 
         return <LI >
                 <Name>{name}</Name>
                 <span>{number}</span>
-                <Button onClick={() => delateContact(id)}>Delate contact</Button>
+                <Button onClick={() => dispatch(delateContact(id))}>Delate contact</Button>
         </LI>
 };
 
-ContactItem.propTypes = {
-        item: PropTypes.objectOf(PropTypes.string),
-        delateContact: PropTypes.func.isRequired,
-}
+
 
 

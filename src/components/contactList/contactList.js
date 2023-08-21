@@ -1,24 +1,23 @@
 import React from "react";
 import { ContactItem } from "./contactItem";
 import { UL } from "./contactList.styled";
-import PropTypes from 'prop-types'; 
+import { useSelector } from "react-redux";
+import { selectContacts } from "redux/selectors";
 
 
 
-export const ContactList = ({ data, delateContact }) => {
+export const ContactList = () => {
+    const contacts = useSelector(selectContacts)
 
     return <UL >
-        {data.map((i) => {    
-            return <ContactItem item={i} key={i.id} delateContact={delateContact} />
-       })}
+        {contacts.map((i) => {
+            return <ContactItem item={i} key={i.id} />
+        })}
     </UL>
-    
-  
+
+
 }
 
-ContactList.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.object.isRequired),
-    delateContact: PropTypes.func.isRequired,
-};
+
 
 

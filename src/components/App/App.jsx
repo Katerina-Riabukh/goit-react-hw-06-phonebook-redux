@@ -3,47 +3,33 @@ import { Form } from "../form/form";
 import { ContactList } from "../contactList/contactList";
 import { FilterContacts } from "../filter/filterContacts";
 import { H1, H2, Wraper } from "./App.styled";
-import { useState, useEffect, useMemo } from "react";
+// import { useState, useEffect, useMemo } from "react";
+import { selectContacts } from "redux/selectors";
+import { useSelector } from "react-redux";
 
 
 
 export const App = () => {
 
-  const [contacts, setContacts] = useState(() => {
-    return JSON.parse(window.localStorage.getItem('contacts')) ?? [];
-  });
+  // const [contacts, setContacts] = useState(() => {
+  //   return JSON.parse(window.localStorage.getItem('contacts')) ?? [];
+  // });
 
-  const [filter, setFilter] = useState('');
+  // const [filter, setFilter] = useState('');
+  const contacts = useSelector(selectContacts)
 
-  const formSubmit = (data) => {
 
-    if (contacts.some((contact) => contact.name.toLowerCase() === data.name.toLowerCase())) {
-      return alert(`${data.name} already in contacts`)
-    }
-    setContacts(prevState => contacts.concat(data));
 
-  };
+  // const formSubmit = (data) => {
 
-  useEffect(() => {
+  //   if (contacts.some((contact) => contact.name.toLowerCase() === data.name.toLowerCase())) {
+  //     return alert(`${data.name} already in contacts`)
+  //   }
+  //   // setContacts(prevState => contacts.concat(data));
 
-    window.localStorage.setItem('contacts', JSON.stringify(contacts))
+  // };
 
-  }, [contacts]);
 
-  const filterValue = (currentValue) => {
-    setFilter(prevState => currentValue)
-  }
-
-  const delateContact = (id) => {
-    setContacts(prevState => contacts.filter((contact) => contact.id !== id))
-
-  }
-  /**variant 1 *///=============
-  const filteredContactsList = useMemo(() => {
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
-  }, [contacts, filter]);
 
   /**variant 2 *///=============
 
@@ -56,11 +42,11 @@ export const App = () => {
   return (
     <Wraper>
       <H1>Phone book</H1>
-      <Form onFormSubmit={formSubmit} />
+      <Form />
       <H2>Contacts</H2>
-      <FilterContacts value={filter} filterContactsByName={filterValue} />
+      <FilterContacts />
 
-      <ContactList data={filteredContactsList} delateContact={delateContact} />
+      <ContactList />
     </Wraper>
   );
 }

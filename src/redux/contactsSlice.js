@@ -8,15 +8,10 @@ export const contactsSlice = createSlice({
     },
     reducers: {
         addContact(state, action) {
-
-            if (state.contacts.some((contact) => contact.name.toLowerCase() === action.payload.name.toLowerCase())) {
-                return alert(`${action.payload.name} already in contacts`)
-            }
             state.contacts.push(action.payload)
         },
         delateContact(state, action) {
-
-            state.contacts.filter((contact) => contact.id !== action.payload)
+            state.contacts = state.contacts.filter((contact) => contact.id !== action.payload)
         }
     }
 })

@@ -16,11 +16,13 @@ export const ContactList = () => {
     });
 
 
-    return <UL >
-        {filteredContactsList.map((item) => {
-            return <ContactItem item={item} key={item.id} />
-        })}
-    </UL>
+    return (
+        <UL >
+            {filteredContactsList.map((item) => {
+                return <ContactItem item={item} key={item.id} />
+            })}
+        </UL>
+    )
 
 
 }

@@ -14,11 +14,13 @@ export const ContactItem = ({ item }) => {
                 dispatch(delateContact(id))
         }
 
-        return <LI >
-                <Name>{name}</Name>
-                <span>{number}</span>
-                <Button onClick={delate}>Delate contact</Button>
-        </LI>
+        return (
+                <LI >
+                        <Name>{name}</Name>
+                        <span>{number}</span>
+                        <Button onClick={delate}>Delate contact</Button>
+                </LI>
+        )
 };
 
 ContactItem.propTypes = {

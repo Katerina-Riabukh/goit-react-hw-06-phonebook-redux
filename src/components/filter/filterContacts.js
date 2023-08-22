@@ -8,11 +8,12 @@ export const FilterContacts = () => {
 
     const dispatch = useDispatch()
 
-    return (<FilterContact> Find contact by name
-        <Filter type="text"
-            onChange={(event) => dispatch(filterContacts(event.currentTarget.value))}></Filter>
-    </FilterContact>
-    );
+    return (
+        <FilterContact> Find contact by name
+            <Filter type="text"
+                onChange={(event) => dispatch(filterContacts(event.currentTarget.value))}></Filter>
+        </FilterContact>
+    )
 
 
 

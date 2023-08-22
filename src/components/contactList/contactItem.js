@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Button, LI, Name } from "./contactItems.styled";
 import { useDispatch } from "react-redux";
 import { delateContact } from "redux/contactsSlice";
@@ -20,6 +21,11 @@ export const ContactItem = ({ item }) => {
         </LI>
 };
 
+ContactItem.propTypes = {
+        name: PropTypes.string,
+        number: PropTypes.string,
+        id: PropTypes.string
+}
 
 
 
